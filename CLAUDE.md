@@ -177,9 +177,9 @@ This project is currently being converted from Lua to Vimscript for improved Vim
 Track progress by striking through completed items in `conversion_plan.md`:
 
 **Phase 1: Foundation Modules**
-- [ ] version.lua → autoload/claude_code/version.vim
-- [ ] git.lua → autoload/claude_code/git.vim  
-- [ ] config.lua → autoload/claude_code/config.vim
+- [x] ~~version.lua → autoload/claude_code/version.vim~~
+- [x] ~~git.lua → autoload/claude_code/git.vim~~  
+- [x] ~~config.lua → autoload/claude_code/config.vim~~
 
 **Phase 2: Feature Modules**
 - [ ] commands.lua → autoload/claude_code/commands.vim
