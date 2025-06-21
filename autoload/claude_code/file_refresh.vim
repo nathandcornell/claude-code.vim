@@ -18,7 +18,7 @@ function! claude_code#file_refresh#setup(claude_code, config) abort
     autocmd!
     
     " Create an autocommand that checks for file changes more frequently
-    autocmd CursorHold,CursorHoldI,FocusGained,BufEnter,InsertLeave,TextChanged,TermLeave,TermEnter,BufWinEnter *
+    autocmd CursorHold,CursorHoldI,FocusGained,BufEnter,InsertLeave,TextChanged,BufWinEnter *
       \ if filereadable(expand('%')) | checktime | endif
 
     " Create an autocommand that notifies when a file has been changed externally
@@ -26,11 +26,15 @@ function! claude_code#file_refresh#setup(claude_code, config) abort
       autocmd FileChangedShellPost * echomsg 'File changed on disk. Buffer reloaded.'
     endif
 
-    " When Claude Code opens, set a shorter updatetime
-    autocmd TermOpen * call s:on_term_open(a:claude_code, a:config)
+    " When Claude Code opens, set a shorter updatetime (if terminal events are available)
+    if exists('##TermOpen')
+      autocmd TermOpen * call s:on_term_open(a:claude_code, a:config)
+    endif
 
-    " When Claude Code closes, restore normal updatetime  
-    autocmd TermClose * call s:on_term_close(a:claude_code)
+    " When Claude Code closes, restore normal updatetime (if terminal events are available)
+    if exists('##TermClose')
+      autocmd TermClose * call s:on_term_close(a:claude_code)
+    endif
   augroup END
 
   " Clean up any existing timer

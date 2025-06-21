@@ -86,19 +86,19 @@ endfunction
 function! s:force_insert_mode_timer(timer_id) abort
   " This will need to be connected to the main plugin's force_insert_mode function
   " For now, we'll create a wrapper that can be called from the main module
-  if exists('g:claude_code_force_insert_mode_func')
-    call g:claude_code_force_insert_mode_func()
+  if exists('g:ClaudeCodeForceInsertModeFunc')
+    call g:ClaudeCodeForceInsertModeFunc()
   endif
 endfunction
 
 " Wrapper function that the main plugin can set up
 function! claude_code#keymaps#force_insert_mode_wrapper() abort
-  if exists('g:claude_code_force_insert_mode_func')
-    call g:claude_code_force_insert_mode_func()
+  if exists('g:ClaudeCodeForceInsertModeFunc')
+    call g:ClaudeCodeForceInsertModeFunc()
   endif
 endfunction
 
 " Set the force insert mode function reference
 function! claude_code#keymaps#set_force_insert_mode_func(func_ref) abort
-  let g:claude_code_force_insert_mode_func = a:func_ref
+  let g:ClaudeCodeForceInsertModeFunc = a:func_ref
 endfunction

@@ -187,8 +187,8 @@ Track progress by striking through completed items in `conversion_plan.md`:
 - [x] ~~file_refresh.lua → autoload/claude_code/file_refresh.vim~~
 
 **Phase 3: Core Integration**
-- [ ] terminal.lua → autoload/claude_code/terminal.vim
-- [ ] init.lua → plugin/claude-code.vim
+- [x] ~~terminal.lua → autoload/claude_code/terminal.vim~~
+- [x] ~~init.lua → plugin/claude-code.vim~~
 
 ### Conversion Guidelines
 - Maintain identical public APIs for backward compatibility
