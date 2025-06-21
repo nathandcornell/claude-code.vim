@@ -139,9 +139,11 @@ function! claude_code#terminal#toggle(claude_code, config, git) abort
     if a:config.git.use_git_root
       let l:git_root = claude_code#git#get_git_root()
       if l:git_root != v:null
-        " Use cd to change directory with explicit path restoration
+        " Use pushd/popd to change directory instead of --cwd
         let l:separator = a:config.shell.separator
-        let l:cmd = 'terminal cd ' . shellescape(l:git_root) . ' ' . l:separator . ' ' . a:config.command
+        let l:pushd_cmd = a:config.shell.pushd_cmd
+        let l:popd_cmd = a:config.shell.popd_cmd
+        let l:cmd = 'terminal ' . l:pushd_cmd . ' ' . l:git_root . ' ' . l:separator . ' ' . a:config.command . ' ' . l:separator . ' ' . l:popd_cmd
       endif
     endif
 
