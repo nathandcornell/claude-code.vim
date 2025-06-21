@@ -6,7 +6,7 @@
 " @param claude_code dict The main plugin module functions
 function! claude_code#commands#register_commands(claude_code) abort
   " Create the user command for toggling Claude Code
-  command! ClaudeCode call a:claude_code.toggle()
+  command! ClaudeCode call claude_code#toggle()
 
   " Create commands for each command variant
   for l:variant_name in keys(a:claude_code.config.command_variants)
@@ -17,7 +17,7 @@ function! claude_code#commands#register_commands(claude_code) abort
       let l:cmd_name = 'ClaudeCode' . l:capitalized_name
 
       " Create the command dynamically
-      execute 'command! ' . l:cmd_name . ' call a:claude_code.toggle_with_variant("' . l:variant_name . '")'
+      execute 'command! ' . l:cmd_name . ' call claude_code#toggle_with_variant("' . l:variant_name . '")'
     endif
   endfor
 
