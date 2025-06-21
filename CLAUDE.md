@@ -168,6 +168,34 @@ Proactive file synchronization:
 - Test cleanup thoroughly to prevent resource leaks
 - Consider timing-sensitive operations in file refresh tests
 
+## Lua to Vimscript Conversion
+
+### Active Development
+This project is currently being converted from Lua to Vimscript for improved Vim compatibility using the strangler fig pattern. See `conversion_plan.md` for the complete migration strategy.
+
+### Conversion Progress
+Track progress by striking through completed items in `conversion_plan.md`:
+
+**Phase 1: Foundation Modules**
+- [ ] version.lua → autoload/claude_code/version.vim
+- [ ] git.lua → autoload/claude_code/git.vim  
+- [ ] config.lua → autoload/claude_code/config.vim
+
+**Phase 2: Feature Modules**
+- [ ] commands.lua → autoload/claude_code/commands.vim
+- [ ] keymaps.lua → autoload/claude_code/keymaps.vim
+- [ ] file_refresh.lua → autoload/claude_code/file_refresh.vim
+
+**Phase 3: Core Integration**
+- [ ] terminal.lua → autoload/claude_code/terminal.vim
+- [ ] init.lua → plugin/claude-code.vim
+
+### Conversion Guidelines
+- Maintain identical public APIs for backward compatibility
+- Test each phase thoroughly before proceeding
+- Keep original Lua files until verification complete
+- Use `make test` to ensure no regressions
+
 ## References
 - [Vimscript Documentation](https://learnvim.irian.to/vimscript/vimscript_basic_data_types)
 - [Lua Reference Manual](https://www.lua.org/manual/5.4/)
