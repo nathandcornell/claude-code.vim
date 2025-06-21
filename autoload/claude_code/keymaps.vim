@@ -55,7 +55,6 @@ function! claude_code#keymaps#setup_terminal_navigation(claude_code, config) abo
     " Window navigation keymaps
     if a:config.keymaps.window_navigation
       " Terminal mode window navigation
-      call setbufvar(l:buf, '&', {})
       execute 'tnoremap <buffer> <silent> <C-h> <C-\><C-n><C-w>h:call claude_code#keymaps#force_insert_mode_wrapper()<CR>'
       execute 'tnoremap <buffer> <silent> <C-j> <C-\><C-n><C-w>j:call claude_code#keymaps#force_insert_mode_wrapper()<CR>'
       execute 'tnoremap <buffer> <silent> <C-k> <C-\><C-n><C-w>k:call claude_code#keymaps#force_insert_mode_wrapper()<CR>'
