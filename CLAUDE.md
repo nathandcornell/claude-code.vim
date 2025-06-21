@@ -182,9 +182,9 @@ Track progress by striking through completed items in `conversion_plan.md`:
 - [x] ~~config.lua → autoload/claude_code/config.vim~~
 
 **Phase 2: Feature Modules**
-- [ ] commands.lua → autoload/claude_code/commands.vim
-- [ ] keymaps.lua → autoload/claude_code/keymaps.vim
-- [ ] file_refresh.lua → autoload/claude_code/file_refresh.vim
+- [x] ~~commands.lua → autoload/claude_code/commands.vim~~
+- [x] ~~keymaps.lua → autoload/claude_code/keymaps.vim~~
+- [x] ~~file_refresh.lua → autoload/claude_code/file_refresh.vim~~
 
 **Phase 3: Core Integration**
 - [ ] terminal.lua → autoload/claude_code/terminal.vim
